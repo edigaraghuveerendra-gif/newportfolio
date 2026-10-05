@@ -204,93 +204,129 @@
 
 
 
-               <!-- =========================
+        <!-- =========================
              ABOUT
         ========================== -->
 
         <section id="about" class="section about-section">
 
-            <div class="section-heading">
-                <h2>About Me</h2>
-            </div>
+            <svg class="pixel-cloud about-cloud-1" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
+            <svg class="pixel-cloud about-cloud-2" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
 
             <div class="about-layout">
 
-                <!-- Text card -->
-                <div class="about-card">
+                <!-- Intro -->
+                <div class="about-copy">
 
-                    <div class="availability">
-                        <span class="availability-dot"></span>
-                        <span>Open to opportunities</span>
-                    </div>
+                    <span class="stack-label">
+                        <i class="focus-pip" aria-hidden="true"></i>
+                        ABOUT ME
+                    </span>
+
+                    <h2 class="about-title">
+                        Building software with logic, curiosity and
+                        <span>Java.</span>
+                    </h2>
 
                     <p class="about-lead">
-                        I am a B.Tech Data Science graduate with a strong
-                        interest in software development, backend
-                        engineering and Java technologies.
+                        I'm a B.Tech Data Science graduate moving into what
+                        I enjoy most: building Java full-stack applications.
                     </p>
 
                     <p>
-                        My primary focus is building practical applications
-                        using Java, SQL and backend technologies while
-                        continuously improving my problem-solving and
-                        data-structures skills.
+                        Data science taught me to think in data and logic.
+                        Software development is where I like to apply it:
+                        designing the database, writing the backend and
+                        shaping the interface on top. I'm currently
+                        strengthening Spring Boot and microservices, sharpening
+                        my problem-solving through DSA, and exploring AI tools
+                        that make development faster.
                     </p>
-
-                    <p>
-                        I enjoy understanding how applications work behind
-                        the scenes — from database design and APIs to
-                        business logic and application architecture.
-                    </p>
-
-                    <p>
-                        I am currently strengthening my knowledge of Spring
-                        Boot, Microservices, SQL and modern development
-                        practices while exploring useful AI tools for
-                        software development.
-                    </p>
-
-                    <div class="about-stats">
-                        <div class="stat">
-                            <strong>Java</strong>
-                            <span>Primary Development</span>
-                        </div>
-                        <div class="stat">
-                            <strong>8.01</strong>
-                            <span>CGPA / 10</span>
-                        </div>
-                        <div class="stat">
-                            <strong>DSA</strong>
-                            <span>Problem Solving</span>
-                        </div>
-                        <div class="stat">
-                            <strong>2026</strong>
-                            <span>Graduation</span>
-                        </div>
-                    </div>
 
                 </div>
 
 
-                <!-- Photo -->
-                <figure class="about-photo">
+                <!-- Fact lines -->
+                <div class="about-facts">
 
-                    <svg class="about-mascot" viewBox="0 0 12 9" aria-hidden="true"><use href="#cup-shape"/></svg>
+                    <dl>
+                        <div class="fact">
+                            <dt>Role</dt>
+                            <dd>Java Full-Stack / Software Engineer</dd>
+                        </div>
+                        <div class="fact">
+                            <dt>Background</dt>
+                            <dd>B.Tech Data Science, class of 2026</dd>
+                        </div>
+                        <div class="fact">
+                            <dt>Learning now</dt>
+                            <dd>Spring Boot · Microservices · AI tools</dd>
+                        </div>
+                    </dl>
 
-                    <div class="about-photo-frame">
-                        <img
-                            src="images/profile.jpg"
-                            alt="Raghuveerendra Ediga"
-                            width="600"
-                            height="750"
+                    <p class="availability">
+                        <span class="availability-dot"></span>
+                        Open to opportunities
+                    </p>
+
+                </div>
+
+
+                <!-- Hanging ID card -->
+                <div class="about-stage-wrap">
+
+                    <div class="about-stage" id="idStage">
+
+                        <svg class="id-strap" id="idStrap" aria-hidden="true">
+                            <path class="strap-band" d=""/>
+                            <path class="strap-stitch" d=""/>
+                        </svg>
+
+                        <div
+                            class="id-card"
+                            id="idCard"
+                            tabindex="0"
+                            role="group"
+                            aria-label="Interactive ID card for Raghuveerendra Ediga. Drag it to make it swing, or press Enter."
                         >
+                            <span class="id-clip" aria-hidden="true"></span>
+
+                            <div class="id-top">
+                                <span class="id-badge">DEV ID</span>
+                                <svg class="id-cup" viewBox="0 0 12 9" aria-hidden="true"><use href="#cup-shape"/></svg>
+                            </div>
+
+                            <div class="id-photo">
+                                <img
+                                    src="images/profile.jpg"
+                                    alt="Raghuveerendra Ediga"
+                                    width="400"
+                                    height="400"
+                                    draggable="false"
+                                >
+                            </div>
+
+                            <h3>Raghuveerendra Ediga</h3>
+
+                            <p class="id-role">JAVA FULL-STACK DEVELOPER</p>
+
+                            <ul class="id-stack">
+                                <li>Java</li>
+                                <li>Spring Boot</li>
+                                <li>SQL</li>
+                            </ul>
+
+                            <div class="id-foot">
+                                <span>B.Tech Data Science · 2026</span>
+                                <i class="id-bars" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <figcaption>
-                        Raghuveerendra Ediga · B.Tech Data Science, RGMCET
-                    </figcaption>
+                    <p class="about-hint">Drag the card. It swings.</p>
 
-                </figure>
+                </div>
 
             </div>
 
