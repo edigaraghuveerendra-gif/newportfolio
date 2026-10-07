@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Raghuveerendra Ediga — Software Engineer and Java Developer portfolio."
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raghuveerendra Ediga — Software Engineer and Java Developer portfolio.">
+    <meta name="theme-color" content="#e3f1fe">
 
     <title>Raghuveerendra Ediga | Software Engineer</title>
 
-        <meta name="theme-color" content="#e3f1fe">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -1.5 12 12' shape-rendering='crispEdges'%3E%3Cpath fill='%236c3200' d='M2 2h8v1H2z'/%3E%3Cpath fill='%23ff5e24' d='M2 3h8v4H2zM3 7h6v1H3zM10 3h2v1h-2zM11 4h1v2h-1zM10 6h2v1h-2z'/%3E%3Cpath fill='%235c6066' d='M1 8h10v1H1z'/%3E%3Cpath fill='%23232629' d='M4 4h1v1H4zM7 4h1v1H7zM4 5h1v1H4zM5 6h2v1H5zM7 5h1v1H7z'/%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
->
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
+        href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Manrope:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
-        href="styles.css"
     >
+
+    <!-- Applies the saved light/dark theme before the page paints -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-       <!-- =========================
+    <!-- =========================
          NAVIGATION
     ========================== -->
 
@@ -83,15 +84,16 @@
 
     </header>
 
+
     <main>
 
-               <!-- =========================
+        <!-- =========================
              HERO
         ========================== -->
 
         <section id="home" class="hero-section">
 
-            <!-- Pixel art shapes (drawn once, reused with <use>) -->
+            <!-- Pixel art shapes used across the page -->
             <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
                 <defs>
                     <g id="cloud-shape" shape-rendering="crispEdges">
@@ -109,7 +111,6 @@
                 </defs>
             </svg>
 
-            <!-- Decorative pixel clouds -->
             <svg class="pixel-cloud cloud-1" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
             <svg class="pixel-cloud cloud-2" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
             <svg class="pixel-cloud cloud-3" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
@@ -117,91 +118,199 @@
 
             <div class="hero-inner">
 
-                <p class="hero-eyebrow">
-                    Hi, I'm <strong>Raghuveerendra Ediga</strong>
-                </p>
+                <!-- LEFT: introduction -->
+                <div class="hero-copy">
 
-                <h1 class="hero-title">
-                    <span>Software Engineer</span>
-                    <span class="hero-title-accent">Java Developer</span>
-                </h1>
+                    <p class="hero-hello">Hi, I'm</p>
 
-                <p class="hero-intro">
-                    I build practical, scalable applications with
-                    <strong>Java</strong> and modern
-                    <strong>backend technologies</strong>.
-                </p>
+                    <h1 class="hero-name">
+                        <span>Raghuveerendra</span>
+                        <span class="hero-name-accent">Ediga</span>
+                    </h1>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        View Projects <span aria-hidden="true">→</span>
-                    </a>
+                    <h2 class="hero-role">Software Engineer &amp; Java Developer</h2>
 
-                    <a
-                        href="resume.pdf"
-                        class="btn btn-secondary"
-                        download="Raghuveerendra-Ediga-Resume.pdf"
-                    >
-                        Download Resume
-                    </a>
-                </div>
+                    <p class="hero-intro">
+                        I build practical, scalable applications with
+                        <strong>Java</strong> and modern
+                        <strong>backend technologies</strong>. I enjoy solving
+                        real-world problems and turning ideas into meaningful
+                        solutions.
+                    </p>
 
-                <div class="hero-links">
-                    <a href="https://github.com/edigaraghuveerendra-gif" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                    <a href="https://www.linkedin.com/in/ediga-raghuveerendra/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-                    <a href="https://leetcode.com/u/Raghu401/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
-                </div>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work <span aria-hidden="true">→</span>
+                        </a>
 
-
-                <!-- Window mockup with pixel mascot -->
-                <div class="hero-window-wrap">
-
-                    <svg class="hero-mascot" viewBox="0 0 12 9" aria-hidden="true"><use href="#cup-shape"/></svg>
-
-                    <div class="hero-window">
-
-                        <div class="window-topbar">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                            <span class="window-title">Developer.java</span>
-                        </div>
-
-                        <div class="window-body">
-
-                            <aside class="window-sidebar">
-                                <span class="side-item active">Developer.java</span>
-                                <span class="side-item">Projects.java</span>
-                                <span class="side-item">Database.sql</span>
-                                <span class="side-item">README.md</span>
-                            </aside>
-
-                            <div class="window-main">
-<pre><code><span class="cm">// Hi, I'm Raghuveerendra.</span>
-<span class="kw">public class</span> Developer {
-
-    <span class="kw">String</span> name = <span class="str">"Raghuveerendra Ediga"</span>;
-    <span class="kw">String</span> role = <span class="str">"Java Developer"</span>;
-    <span class="kw">String</span>[] stack = { <span class="str">"Java"</span>, <span class="str">"SQL"</span>, <span class="str">"JDBC"</span>, <span class="str">"Servlets"</span> };
-
-    <span class="kw">void</span> build() {
-        learn();
-        solve();
-        ship();
-    }
-}</code></pre>
-                            </div>
-
-                        </div>
-
+                        <a
+                            href="resume.pdf"
+                            class="btn btn-secondary"
+                            download="Raghuveerendra-Ediga-Resume.pdf"
+                        >
+                            Download Resume <span aria-hidden="true">↓</span>
+                        </a>
                     </div>
+
+                    <div class="hero-links">
+                        <a href="https://github.com/edigaraghuveerendra-gif" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/ediga-raghuveerendra/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://leetcode.com/u/Raghu401/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT: illustration + lamp switch -->
+                <div class="hero-stage">
+
+                    <svg class="hero-illustration" viewBox="0 0 600 500" aria-hidden="true" focusable="false">
+
+                        <defs>
+                            <linearGradient id="il-cone-grad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#ffd48a" stop-opacity=".62"/>
+                                <stop offset="1" stop-color="#ffd48a" stop-opacity="0"/>
+                            </linearGradient>
+                            <radialGradient id="il-glow-grad">
+                                <stop offset="0" stop-color="#8cc0ff" stop-opacity=".7"/>
+                                <stop offset="1" stop-color="#8cc0ff" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+
+                        <!-- floor -->
+                        <line class="il-floor" x1="30" y1="455" x2="575" y2="455" stroke-width="3" stroke-linecap="round"/>
+
+                        <!-- bookshelf -->
+                        <g>
+                            <rect class="il-shelf" x="26" y="205" width="128" height="250" rx="6"/>
+                            <rect class="il-shelf-back" x="36" y="215" width="108" height="230" rx="3"/>
+                            <g>
+                                <rect x="42" y="236" width="12" height="56" fill="#ff5e24"/>
+                                <rect x="55" y="246" width="10" height="46" fill="#232629"/>
+                                <rect x="66" y="230" width="14" height="62" fill="#9cc4ee"/>
+                                <rect x="81" y="250" width="11" height="42" fill="#ff8a5c"/>
+                                <rect x="93" y="240" width="13" height="52" fill="#5c6066"/>
+                                <rect x="108" y="256" width="24" height="36" fill="#f6e7c8" transform="rotate(-8 120 292)"/>
+                            </g>
+                            <g>
+                                <rect x="42" y="322" width="14" height="50" fill="#9cc4ee"/>
+                                <rect x="57" y="312" width="12" height="60" fill="#ff5e24"/>
+                                <rect x="70" y="330" width="10" height="42" fill="#232629"/>
+                                <rect x="81" y="318" width="13" height="54" fill="#f6e7c8"/>
+                                <rect x="95" y="326" width="11" height="46" fill="#ff8a5c"/>
+                                <rect x="107" y="334" width="26" height="38" fill="#5c6066"/>
+                            </g>
+                            <g>
+                                <rect x="42" y="396" width="30" height="12" fill="#ff5e24"/>
+                                <rect x="44" y="408" width="30" height="12" fill="#9cc4ee"/>
+                                <rect x="42" y="420" width="32" height="12" fill="#232629"/>
+                                <rect x="84" y="404" width="12" height="28" fill="#f6e7c8"/>
+                                <rect x="97" y="396" width="13" height="36" fill="#ff8a5c"/>
+                            </g>
+                            <rect class="il-shelf" x="36" y="292" width="108" height="9"/>
+                            <rect class="il-shelf" x="36" y="372" width="108" height="9"/>
+                            <rect class="il-shelf" x="36" y="432" width="108" height="13"/>
+                            <g>
+                                <ellipse cx="82" cy="180" rx="7" ry="17" fill="#2f9e5b" transform="rotate(-24 90 200)"/>
+                                <ellipse cx="98" cy="178" rx="7" ry="19" fill="#43b36e" transform="rotate(8 90 200)"/>
+                                <ellipse cx="108" cy="184" rx="6" ry="14" fill="#2f9e5b" transform="rotate(32 90 200)"/>
+                                <path class="il-pot" d="M76 190h28l-4 15H80z"/>
+                            </g>
+                        </g>
+
+                        <!-- floor plant -->
+                        <g>
+                            <g class="il-sway">
+                                <ellipse cx="204" cy="384" rx="13" ry="36" fill="#2f9e5b" transform="rotate(-12 208 425)"/>
+                                <ellipse cx="216" cy="388" rx="12" ry="32" fill="#43b36e" transform="rotate(20 208 425)"/>
+                                <ellipse cx="194" cy="398" rx="10" ry="26" fill="#1f7a45" transform="rotate(-40 208 425)"/>
+                                <ellipse cx="226" cy="402" rx="10" ry="24" fill="#2f9e5b" transform="rotate(48 208 425)"/>
+                            </g>
+                            <path class="il-pot" d="M186 424h44l-6 31h-32z"/>
+                            <rect class="il-pot-rim" x="186" y="424" width="44" height="6"/>
+                        </g>
+
+                        <!-- shadow + lamp light -->
+                        <ellipse cx="395" cy="456" rx="150" ry="8" fill="#000" opacity=".08"/>
+                        <polygon class="il-cone" points="378,148 412,148 505,442 296,442" fill="url(#il-cone-grad)"/>
+
+                        <!-- bean bag -->
+                        <path d="M258 455C246 410 262 345 320 318C362 298 410 262 458 256C500 252 522 300 520 365C519 410 512 440 506 455Z" fill="#ff5e24"/>
+                        <path d="M300 455C292 420 300 372 330 346C350 330 372 322 392 316C372 346 366 400 378 455Z" fill="#e8501a" opacity=".55"/>
+                        <path d="M470 262C496 270 508 310 506 360" fill="none" stroke="#ff8a5c" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+
+                        <!-- back leg + shoe -->
+                        <path class="il-pants-back" d="M396 372L332 340L324 426" fill="none" stroke-width="28" stroke-linejoin="round" stroke-linecap="round"/>
+                        <g transform="translate(28,-3)">
+                            <path d="M258 452Q256 432 280 430L312 432Q326 438 324 452Z" fill="#f3f5f8"/>
+                            <path d="M258 452Q256 436 270 432L276 452Z" fill="#ff5e24"/>
+                            <rect x="256" y="451" width="70" height="5" rx="2" fill="#d9dee5"/>
+                        </g>
+
+                        <!-- hoodie body -->
+                        <g class="il-breathe">
+                            <ellipse cx="450" cy="292" rx="24" ry="18" fill="#e8501a"/>
+                            <path d="M382 384C372 342 384 300 410 284C438 270 466 288 463 332C461 364 442 388 418 394Z" fill="#f6e7c8"/>
+                            <path d="M414 352q22 6 38 -4" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="3" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- front leg + shoe -->
+                        <path class="il-pants" d="M392 378L316 338L298 426" fill="none" stroke-width="30" stroke-linejoin="round" stroke-linecap="round"/>
+                        <path d="M258 452Q256 432 280 430L312 432Q326 438 324 452Z" fill="#ffffff"/>
+                        <path d="M258 452Q256 436 270 432L276 452Z" fill="#ff5e24"/>
+                        <rect x="256" y="451" width="70" height="5" rx="2" fill="#d9dee5"/>
+
+                        <!-- laptop -->
+                        <ellipse class="il-screenglow" cx="352" cy="312" rx="86" ry="66" fill="url(#il-glow-grad)"/>
+                        <path d="M322 340L404 357L402 365L320 348Z" fill="#aab2be"/>
+                        <path d="M322 340L338 274L388 286L368 349Z" fill="#cdd3dc"/>
+                        <circle cx="354" cy="313" r="5.5" fill="#ff5e24"/>
+
+                        <!-- arm + head -->
+                        <g class="il-breathe">
+                            <path d="M436 308L450 350L394 350" fill="none" stroke="#f6e7c8" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
+                            <circle cx="386" cy="350" r="9" fill="#f2c9a3"/>
+                            <rect x="410" y="258" width="22" height="28" rx="8" fill="#e2b48c"/>
+                            <circle cx="420" cy="238" r="32" fill="#f2c9a3"/>
+                            <circle cx="450" cy="244" r="6" fill="#e9b88f"/>
+                            <g fill="#1b1b1f">
+                                <circle cx="402" cy="214" r="17"/>
+                                <circle cx="424" cy="206" r="19"/>
+                                <circle cx="445" cy="216" r="15"/>
+                                <circle cx="394" cy="230" r="11"/>
+                                <circle cx="448" cy="232" r="10"/>
+                            </g>
+                            <g fill="none" stroke="#232629" stroke-width="3">
+                                <circle cx="403" cy="242" r="9.5" fill="#ffffff" fill-opacity=".35"/>
+                                <circle cx="427" cy="243" r="9.5" fill="#ffffff" fill-opacity=".35"/>
+                                <path d="M412 242q3-3 6 0"/>
+                            </g>
+                            <circle cx="403" cy="244" r="2.4" fill="#232629"/>
+                            <circle cx="427" cy="245" r="2.4" fill="#232629"/>
+                            <path d="M403 261q10 8 21 -1" fill="none" stroke="#8a4b2f" stroke-width="2.5" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- hanging lamp -->
+                        <g class="il-lamp">
+                            <line class="il-cord" x1="395" y1="0" x2="395" y2="96" stroke-width="2.5"/>
+                            <rect class="il-lampshade" x="388" y="90" width="14" height="9" rx="2"/>
+                            <path class="il-lampshade" d="M352 142Q352 102 395 98Q438 102 438 142Z"/>
+                            <circle class="il-bulb" cx="395" cy="144" r="9"/>
+                            <path class="il-rays" d="M373 162l-8 12M395 166v16M417 162l8 12" fill="none" stroke-width="2.5" stroke-linecap="round"/>
+                        </g>
+
+                    </svg>
+
+                    <!-- The real, clickable lamp switch -->
+                    <button type="button" class="lamp-btn" id="lampToggle" aria-label="Switch to dark mode"></button>
+
+                    <p class="lamp-hint" id="lampHint" aria-hidden="true">← Try the lamp</p>
 
                 </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =========================
@@ -333,8 +442,7 @@
         </section>
 
 
-
-                    <!-- ==================== SKILLS ==================== -->
+        <!-- ==================== SKILLS ==================== -->
         <section id="skills" class="section skills-section">
 
             <!-- Line icons used by the concept chips (drawn once, reused) -->
@@ -530,12 +638,10 @@
             </div>
 
         </section>
-        <!-- ==================== END SKILLS ==================== -->s
+        <!-- ==================== END SKILLS ==================== -->
 
 
-
-
-               <!-- =========================
+        <!-- =========================
              PROJECTS
         ========================== -->
 
@@ -685,72 +791,71 @@
         </section>
 
 
+        <!-- =========================
+             EDUCATION
+        ========================== -->
 
-       <!-- =========================
-     EDUCATION
-========================== -->
+        <section id="education" class="section education-section">
 
-<section id="education" class="section education-section">
-    <div class="section-heading">
-        <h2>Education</h2>
-    </div>
-
-    <div class="education-card">
-
-        <!-- COLLEGE IMAGE GOES HERE -->
-        <div class="education-visual education-photo">
-            <img
-                src="images/college.jpg"
-                alt="Rajeev Gandhi Memorial College of Engineering and Technology"
-                class="college-image"
-                width="600"
-                height="450"
-            >
-        </div>
-
-        <!-- EDUCATION DETAILS -->
-        <div class="education-details">
-            <div class="education-period">2023 — 2026</div>
-
-            <h3 class="education-degree">
-                B.Tech in Data Science
-            </h3>
-
-            <h4 class="education-college">
-                Rajeev Gandhi Memorial College of Engineering and Technology
-            </h4>
-
-            <a
-    href="https://www.google.com/maps/search/?api=1&query=Rajeev+Gandhi+Memorial+College+of+Engineering+and+Technology,+Nandyal,+Andhra+Pradesh"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="education-location"
->
-    <span class="location-icon">●</span>
-    Nandyal, Andhra Pradesh
-</a>
-
-            <div class="education-divider"></div>
-
-            <div class="education-bottom">
-                <div class="education-info">
-                    <span class="education-info-label">Institution</span>
-                    <strong>RGMCET</strong>
-                </div>
-
-                <div class="education-info">
-                    <span class="education-info-label">CGPA</span>
-                    <strong>8.01 / 10</strong>
-                </div>
+            <div class="section-heading">
+                <h2>Education</h2>
             </div>
-        </div>
 
-    </div>
-</section>
+            <div class="education-card">
+
+                <div class="education-visual education-photo">
+                    <img
+                        src="images/college.jpg"
+                        alt="Rajeev Gandhi Memorial College of Engineering and Technology"
+                        class="college-image"
+                        width="600"
+                        height="450"
+                    >
+                </div>
+
+                <div class="education-details">
+
+                    <div class="education-period">2023 — 2026</div>
+
+                    <h3 class="education-degree">B.Tech in Data Science</h3>
+
+                    <h4 class="education-college">
+                        Rajeev Gandhi Memorial College of Engineering and Technology
+                    </h4>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Rajeev+Gandhi+Memorial+College+of+Engineering+and+Technology,+Nandyal,+Andhra+Pradesh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="education-location"
+                    >
+                        <span class="location-icon">●</span>
+                        Nandyal, Andhra Pradesh
+                    </a>
+
+                    <div class="education-divider"></div>
+
+                    <div class="education-bottom">
+                        <div class="education-info">
+                            <span class="education-info-label">Institution</span>
+                            <strong>RGMCET</strong>
+                        </div>
+
+                        <div class="education-info">
+                            <span class="education-info-label">CGPA</span>
+                            <strong>8.01 / 10</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
 
 
-               <!-- =========================
+        <!-- =========================
              CERTIFICATIONS
         ========================== -->
 
@@ -864,7 +969,8 @@
         </section>
 
 
-               <!-- =========================
+
+        <!-- =========================
              CURRENT FOCUS
         ========================== -->
 
@@ -896,7 +1002,7 @@
 
 
 
-               <!-- =========================
+        <!-- =========================
              CONTACT
         ========================== -->
 
@@ -958,54 +1064,23 @@
         <div class="footer-content">
 
             <div class="footer-brand">
-
-                <strong>
-                    Raghuveerendra Ediga
-                </strong>
-
-                <span>
-                    Software Engineer | Java Developer
-                </span>
-
+                <strong>Raghuveerendra Ediga</strong>
+                <span>Software Engineer | Java Developer</span>
             </div>
-
 
             <div class="footer-links">
-
-                <a
-                    href="https://github.com/edigaraghuveerendra-gif"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    GitHub
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/ediga-raghuveerendra/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn
-                </a>
-
-                <a
-                    href="mailto:edigaraghuveerendra@gmail.com"
-                >
-                    Email
-                </a>
-
+                <a href="https://github.com/edigaraghuveerendra-gif" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/ediga-raghuveerendra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:edigaraghuveerendra@gmail.com">Email</a>
             </div>
 
-
-            <p class="copyright">
-                © 2026 Raghuveerendra Ediga
-            </p>
+            <p class="copyright">© 2026 Raghuveerendra Ediga</p>
 
         </div>
 
     </footer>
 
-     <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>

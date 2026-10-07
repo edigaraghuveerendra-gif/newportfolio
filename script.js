@@ -121,7 +121,7 @@
 
     if (canHover) {
         document
-            .querySelectorAll('.skill-card, .certification-card, .coding-card')
+            .querySelectorAll('.certification-card, .coding-card')
             .forEach((card) => {
 
                 card.classList.add('spotlight-card');
@@ -136,34 +136,7 @@
 
 
     /* =====================================================
-       5. HERO WINDOW TILT (mouse devices only)
-    ===================================================== */
-
-    const heroWrap   = document.querySelector('.hero-window-wrap');
-    const heroWindow = document.querySelector('.hero-window');
-
-    if (heroWrap && heroWindow && canHover && !reduceMotion) {
-
-        heroWrap.addEventListener('pointermove', (event) => {
-            const box = heroWrap.getBoundingClientRect();
-            const x = (event.clientX - box.left) / box.width  - 0.5;
-            const y = (event.clientY - box.top)  / box.height - 0.5;
-
-            heroWindow.style.transform =
-                'rotateX(' + (-y * 3).toFixed(2) + 'deg) ' +
-                'rotateY(' + (x * 4).toFixed(2) + 'deg)';
-        });
-
-        heroWrap.addEventListener('pointerleave', () => {
-            heroWindow.style.transform = '';
-        });
-    }
-
-
-
-
-        /* =====================================================
-       6. ABOUT: HANGING ID CARD (rope physics, plain JS)
+       5. ABOUT: HANGING ID CARD (rope physics, plain JS)
        Drag the card, let go, and it swings and settles.
     ===================================================== */
 
@@ -468,4 +441,48 @@
 
         document.addEventListener('visibilitychange', wake);
     }
+
+
+    /* =====================================================
+       6. THEME: the lamp switches light / dark
+    ===================================================== */
+
+    const themeRoot = document.documentElement;
+    const lamp      = document.getElementById('lampToggle');
+    const lampHint  = document.getElementById('lampHint');
+    const lampDrawn = document.querySelector('.il-lamp');
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+    function syncTheme() {
+        const dark = themeRoot.getAttribute('data-theme') === 'dark';
+        if (themeMeta) themeMeta.setAttribute('content', dark ? '#0f1520' : '#e3f1fe');
+        if (lamp) lamp.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    syncTheme();
+
+    if (lamp) {
+        lamp.addEventListener('click', () => {
+            const next = themeRoot.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+
+            if (!reduceMotion) {
+                themeRoot.classList.add('theme-fade');
+                setTimeout(() => themeRoot.classList.remove('theme-fade'), 500);
+            }
+
+            themeRoot.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked */ }
+            syncTheme();
+
+            if (lampHint) lampHint.classList.add('is-gone');
+
+            // Small swing of the lamp
+            if (lampDrawn && !reduceMotion) {
+                lampDrawn.classList.remove('swing');
+                void lampDrawn.getBoundingClientRect();
+                lampDrawn.classList.add('swing');
+            }
+        });
+    }
+
 })();
