@@ -485,4 +485,122 @@
         });
     }
 
+    /* =========================================================
+   PROJECTS TIMELINE
+   - the orange line grows as you scroll
+   - each number lights up when the line reaches it
+   - each project fades in as it comes into view
+========================================================= */
+
+(() => {
+    'use strict';
+
+    const timeline = document.getElementById('ptTimeline');
+    if (!timeline) return;
+
+    const line  = timeline.querySelector('.pt-line');
+    const fill  = timeline.querySelector('.pt-line-fill');
+    const items = [...timeline.querySelectorAll('.pt-item')];
+    const nodes = [...timeline.querySelectorAll('.pt-node')];
+
+    if (!line || !fill || !nodes.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+    /* Less motion: show everything lit and visible, no animation */
+    if (reduceMotion) {
+        timeline.classList.add('pt-static');
+    }
+
+
+    /* ---- Make the line run from the first number to the last ---- */
+
+    function layoutLine() {
+        const box   = timeline.getBoundingClientRect();
+        const first = nodes[0].getBoundingClientRect();
+        const last  = nodes[nodes.length - 1].getBoundingClientRect();
+
+        const top    = first.top - box.top + first.height / 2;
+        const bottom = last.top  - box.top + last.height / 2;
+
+        line.style.top    = top + 'px';
+        line.style.bottom = 'auto';
+        line.style.height = Math.max(0, bottom - top) + 'px';
+    }
+
+
+    /* ---- Grow the line and light up the numbers ---- */
+
+    function update() {
+        const lineBox = line.getBoundingClientRect();
+        const mark    = window.innerHeight * 0.55;   // the "reading line"
+
+        const grown = Math.min(lineBox.height, Math.max(0, mark - lineBox.top));
+        fill.style.height = grown + 'px';
+
+        nodes.forEach((node) => {
+            const box = node.getBoundingClientRect();
+            node.classList.toggle('is-active', box.top + box.height / 2 <= mark);
+        });
+    }
+
+    let waiting = false;
+
+    function onScroll() {
+        if (waiting) return;
+        waiting = true;
+
+        requestAnimationFrame(() => {
+            waiting = false;
+            update();
+        });
+    }
+
+    function refresh() {
+        layoutLine();
+
+        if (reduceMotion) {
+            fill.style.height = '100%';   // fully lit, nothing animates
+        } else {
+            update();
+        }
+    }
+
+
+    /* ---- Fade each project in ---- */
+
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+
+        timeline.classList.add('pt-js');
+
+        const reveal = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-in');
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+        items.forEach((item) => reveal.observe(item));
+    }
+
+
+    /* ---- Start and keep everything in the right place ---- */
+
+    refresh();
+
+    if (!reduceMotion) {
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    window.addEventListener('resize', refresh);
+    window.addEventListener('load', refresh);   // screenshots change the heights
+
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(refresh).observe(timeline);
+    }
+})();
+
+
 })();

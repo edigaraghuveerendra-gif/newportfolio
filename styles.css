@@ -2783,3 +2783,975 @@ html.theme-fade *::after {
 :root[data-theme="dark"] .pixel-cloud {
     filter: brightness(0.4) saturate(0.7);
 }
+
+
+/* =========================================================
+   PROJECTS: VERTICAL TIMELINE
+   Everything here starts with "pt-" so it cannot clash with
+   the other sections. It reuses the colours, fonts, shadows
+   and window styles already defined in styles.css, so dark
+   mode works automatically.
+========================================================= */
+
+.projects-section {
+    padding-top: 80px;
+    padding-bottom: 120px;
+}
+
+
+/* ---------------- Header ---------------- */
+
+.pt-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+
+    margin-bottom: 72px;
+}
+
+.pt-intro {
+    max-width: 600px;
+}
+
+.pt-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 7px 14px;
+
+    background: var(--paper-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    box-shadow: var(--shadow-card);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--graphite-ink);
+}
+
+.pt-pip {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--signal-orange);
+}
+
+.pt-title {
+    margin: 18px 0 16px;
+
+    font-family: var(--font-display);
+    font-weight: 400;
+
+    font-size: clamp(48px, 7vw, 72px);
+    line-height: 0.85;
+    letter-spacing: -0.025em;
+
+    color: var(--graphite-ink);
+}
+
+.pt-title span {
+    color: var(--signal-orange);
+}
+
+.pt-lede {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--slate-pencil);
+}
+
+.pt-stats {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+
+.pt-stats li {
+    min-width: 140px;
+    padding: 14px 22px;
+
+    background: var(--paper-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
+    box-shadow: var(--shadow-card);
+}
+
+.pt-stats strong {
+    display: block;
+
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 0.9;
+    color: var(--graphite-ink);
+}
+
+.pt-stats span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate-pencil);
+}
+
+
+/* ---------------- The one vertical line ---------------- */
+
+.pt-timeline {
+    position: relative;
+}
+
+/* Grey track. projects.js sets its top and height so it runs
+   from the first node to the last. */
+.pt-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+    margin-left: -1px;
+
+    background: var(--border);
+    border-radius: 2px;
+}
+
+/* Orange part that grows while you scroll */
+.pt-line-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 0;
+
+    background: linear-gradient(to bottom, var(--signal-orange), #ff9a6c);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(255, 94, 36, 0.45);
+}
+
+.pt-static .pt-line-fill {
+    height: 100%;
+}
+
+.pt-list {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+}
+
+
+/* ---------------- One timeline item ---------------- */
+
+.pt-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr);
+    align-items: start;
+
+    margin-bottom: 72px;
+}
+
+.pt-item:last-child {
+    margin-bottom: 0;
+}
+
+.pt-node { grid-column: 2; grid-row: 1; }
+
+.pt-left  .pt-card { grid-column: 1; grid-row: 1; }
+.pt-left  .pt-side { grid-column: 3; grid-row: 1; }
+.pt-right .pt-card { grid-column: 3; grid-row: 1; }
+.pt-right .pt-side { grid-column: 1; grid-row: 1; text-align: right; }
+
+/* Number circle on the line */
+.pt-node {
+    position: relative;
+
+    justify-self: center;
+    margin-top: 40px;
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: var(--paper-white);
+    border: 2px solid var(--border-dark);
+
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--slate-pencil);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Short connector from the node to its card */
+.pt-node::before {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+
+    width: 26px;
+    height: 2px;
+    margin-top: -1px;
+
+    background: var(--border-dark);
+    transition: background-color 0.3s ease;
+}
+
+.pt-left  .pt-node::before { right: 100%; }
+.pt-right .pt-node::before { left: 100%; }
+
+/* Lit up once the line reaches it */
+.pt-node.is-active,
+.pt-static .pt-node {
+    background: var(--signal-orange);
+    border-color: var(--signal-orange);
+    color: #ffffff;
+
+    box-shadow: 0 0 0 6px rgba(255, 94, 36, 0.16);
+    transform: scale(1.04);
+}
+
+.pt-node.is-active::before,
+.pt-static .pt-node::before {
+    background: var(--signal-orange);
+}
+
+/* Future node is lighter */
+.pt-future .pt-node.is-active,
+.pt-static .pt-future .pt-node {
+    background: var(--paper-white);
+    border-color: var(--signal-orange);
+    color: var(--signal-orange);
+}
+
+
+/* Big faint number on the empty side (stays while you scroll) */
+.pt-side-inner {
+    position: sticky;
+    top: 130px;
+    padding-top: 12px;
+}
+
+.pt-bignum {
+    font-family: var(--font-display);
+    font-size: 150px;
+    line-height: 0.8;
+    color: var(--border);
+}
+
+
+/* ---------------- Project card ---------------- */
+
+.pt-card {
+    position: relative;
+    overflow: hidden;
+
+    padding: 44px 28px 28px;
+
+    background: var(--paper-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-image);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.pt-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 94, 36, 0.45);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Orange pixel-drip edge on the top of each project card */
+.pt-drip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 5' shape-rendering='crispEdges'%3E%3Cpath fill='%23ff5e24' d='M0 0h16v2H0zM0 2h4v1H0zM5 2h2v1H5zM9 2h4v1H9zM14 2h2v1h-2zM1 3h2v1H1zM5 3h1v1H5zM10 3h2v1h-2zM15 3h1v1h-1zM1 4h1v1H1zM10 4h1v1h-1z'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 64px 20px;
+    image-rendering: pixelated;
+}
+
+.pt-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+.pt-badge {
+    padding: 4px 10px;
+
+    background: rgba(255, 94, 36, 0.1);
+    border-radius: var(--radius-button);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--signal-orange);
+}
+
+.pt-cat {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--slate-pencil);
+}
+
+.pt-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+
+    font-size: clamp(38px, 4.2vw, 54px);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+
+    color: var(--graphite-ink);
+}
+
+.pt-desc {
+    margin: 14px 0 22px;
+
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--slate-pencil);
+}
+
+
+/* Screenshot in a window frame: shown in full, not cropped */
+.pt-window {
+    margin: 0;
+    overflow: hidden;
+
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow-card);
+}
+
+.pt-window img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+
+    object-fit: cover;
+    object-position: top;
+
+    transition: transform 0.5s ease;
+}
+
+.pt-card:hover .pt-window img {
+    transform: scale(1.03);
+}
+
+
+/* Technology badges */
+.pt-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 22px 0 20px;
+    list-style: none;
+}
+
+.pt-tech li {
+    padding: 6px 12px;
+
+    background: var(--cloud-mist);
+    border-radius: var(--radius-button);
+
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--graphite-ink);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pt-tech li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(255, 94, 36, 0.5);
+}
+
+
+/* Key capabilities */
+.pt-caps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+
+    margin-bottom: 26px;
+    list-style: none;
+}
+
+.pt-caps li {
+    position: relative;
+    padding-left: 20px;
+
+    font-size: 14px;
+    color: var(--slate-pencil);
+}
+
+.pt-caps li::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 7px;
+
+    width: 8px;
+    height: 8px;
+    background: var(--signal-orange);
+}
+
+
+/* GitHub / Live Demo */
+.pt-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+}
+
+.pt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    background: var(--paper-white);
+    color: var(--graphite-ink);
+
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-button);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pt-btn:hover {
+    border-color: var(--signal-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 94, 36, 0.14);
+}
+
+.pt-btn span {
+    transition: transform 0.2s ease;
+}
+
+.pt-btn:hover span {
+    transform: translateX(3px);
+}
+
+.pt-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--graphite-ink);
+
+    text-decoration: underline transparent;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.pt-link:hover {
+    color: var(--signal-orange);
+    text-decoration-color: var(--signal-orange);
+}
+
+.pt-btn:focus-visible,
+.pt-link:focus-visible {
+    outline: 2px solid var(--signal-orange);
+    outline-offset: 3px;
+}
+
+
+/* ---------------- Future projects card (lighter) ---------------- */
+
+.pt-future .pt-card {
+    padding: 28px;
+
+    background: transparent;
+    border: 2px dashed var(--border-dark);
+    box-shadow: none;
+}
+
+.pt-future .pt-card:hover {
+    transform: none;
+    border-color: rgba(255, 94, 36, 0.45);
+}
+
+.pt-future .pt-name {
+    font-size: clamp(32px, 3.4vw, 42px);
+}
+
+.pt-future .pt-desc {
+    margin-bottom: 0;
+}
+
+.pt-plus {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 18px;
+}
+
+
+/* ---------------- Closing line ---------------- */
+
+.pt-motto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 64px;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--slate-pencil);
+}
+
+
+/* ---------------- Scroll reveal (only when JavaScript runs) ---------------- */
+
+.pt-js .pt-item {
+    opacity: 0;
+    transform: translateY(28px);
+
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.pt-js .pt-item.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* ---------------- Tablet ---------------- */
+
+@media (max-width: 1100px) {
+
+    .pt-bignum {
+        font-size: 110px;
+    }
+
+    .pt-caps {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------------- Mobile: line moves to the left ---------------- */
+
+@media (max-width: 900px) {
+
+    .pt-header {
+        margin-bottom: 48px;
+    }
+
+    .pt-line {
+        left: 22px;
+    }
+
+    .pt-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+        margin-bottom: 40px;
+    }
+
+    .pt-node,
+    .pt-left .pt-node,
+    .pt-right .pt-node {
+        grid-column: 1;
+        margin-top: 28px;
+
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .pt-left .pt-card,
+    .pt-right .pt-card {
+        grid-column: 2;
+        margin-left: 10px;
+    }
+
+    .pt-side {
+        display: none;
+    }
+
+    .pt-left .pt-node::before,
+    .pt-right .pt-node::before {
+        left: 100%;
+        right: auto;
+        width: 10px;
+    }
+
+    .pt-caps {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+
+    .pt-card {
+        padding: 40px 18px 22px;
+        border-radius: var(--radius);
+    }
+
+    .pt-future .pt-card {
+        padding: 22px 18px;
+    }
+
+    .pt-caps {
+        grid-template-columns: 1fr;
+    }
+
+    .pt-stats {
+        width: 100%;
+    }
+
+    .pt-stats li {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .pt-actions {
+        gap: 16px;
+    }
+}
+
+
+/* ---------------- Reduced motion ---------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pt-card:hover,
+    .pt-btn:hover,
+    .pt-tech li:hover {
+        transform: none;
+    }
+
+    .pt-card:hover .pt-window img {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   PROJECTS: LANDSCAPE CARDS + GITHUB CTA  (version 2)
+   Paste this at the very END of styles.css.
+   If you pasted the previous projects-landscape-cards.css block,
+   DELETE that block first. This file replaces it.
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. Wider timeline (unchanged from before)
+--------------------------------------------------------- */
+
+.pt-timeline {
+    width: min(1680px, calc(100vw - 48px));
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* ---------------------------------------------------------
+   2. Compact landscape card (desktop, 1300px and up)
+
+   LEFT : label, title, description, technologies
+   RIGHT: screenshot, with the two buttons directly under it
+   BOTTOM (full width): features in one tidy 4-column band
+--------------------------------------------------------- */
+
+.pt-item:not(.pt-future) .pt-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+    grid-template-areas:
+        "meta window"
+        "name window"
+        "desc window"
+        "tech actions"
+        "caps caps";
+    column-gap: 32px;
+    row-gap: 0;
+    align-items: start;
+
+    padding: 44px 28px 22px;
+}
+
+.pt-item:not(.pt-future) .pt-meta    { grid-area: meta;    margin-bottom: 8px; }
+.pt-item:not(.pt-future) .pt-name    { grid-area: name;    font-size: clamp(28px, 2.4vw, 38px); }
+.pt-item:not(.pt-future) .pt-desc    { grid-area: desc;    margin: 10px 0 14px; font-size: 14px; line-height: 1.65; }
+.pt-item:not(.pt-future) .pt-tech    { grid-area: tech;    margin: 0; gap: 6px; align-self: center; }
+.pt-item:not(.pt-future) .pt-caps    { grid-area: caps; }
+.pt-item:not(.pt-future) .pt-actions { grid-area: actions; }
+.pt-item:not(.pt-future) .pt-window  { grid-area: window; align-self: center; }
+
+.pt-item:not(.pt-future) .pt-tech li {
+    padding: 5px 11px;
+}
+
+/* Screenshot: clearly visible, ratio kept, never decides the height */
+.pt-item:not(.pt-future) .pt-window img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+}
+
+.pt-item:not(.pt-future) .window-topbar {
+    padding: 9px 14px;
+}
+
+/* Features: one compact band across the bottom */
+.pt-item:not(.pt-future) .pt-caps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px 18px;
+
+    margin: 16px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.pt-item:not(.pt-future) .pt-caps li {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.pt-item:not(.pt-future) .pt-caps li::before {
+    top: 5px;
+}
+
+/* Buttons: ALWAYS side by side on desktop */
+.pt-item:not(.pt-future) .pt-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    margin: 0;
+    align-self: center;
+}
+
+.pt-item:not(.pt-future) .pt-btn {
+    padding: 8px 13px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+   3. Laptops (1180px - 1299px): title spans the top,
+   buttons go in their own row so they never wrap
+--------------------------------------------------------- */
+
+@media (min-width: 1180px) and (max-width: 1299px) {
+
+    .pt-item:not(.pt-future) .pt-card {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+            "meta    meta"
+            "name    name"
+            "desc    window"
+            "tech    window"
+            "caps    caps"
+            "actions actions";
+        column-gap: 24px;
+        padding: 44px 24px 22px;
+    }
+
+    .pt-item:not(.pt-future) .pt-tech    { margin-top: 0; align-self: start; }
+    .pt-item:not(.pt-future) .pt-window  { align-self: start; }
+    .pt-item:not(.pt-future) .pt-actions { margin-top: 16px; align-self: start; }
+    .pt-item:not(.pt-future) .pt-caps    { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+
+/* ---------------------------------------------------------
+   4. Narrow timeline (901px - 1179px): content stacks
+--------------------------------------------------------- */
+
+@media (min-width: 901px) and (max-width: 1179px) {
+
+    .pt-item:not(.pt-future) .pt-card {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "meta"
+            "name"
+            "desc"
+            "window"
+            "tech"
+            "actions"
+            "caps";
+        padding: 44px 24px 22px;
+    }
+
+    .pt-item:not(.pt-future) .pt-window  { margin-bottom: 16px; }
+    .pt-item:not(.pt-future) .pt-tech    { align-self: start; margin-bottom: 14px; }
+    .pt-item:not(.pt-future) .pt-actions { align-self: start; }
+    .pt-item:not(.pt-future) .pt-caps    { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+
+/* ---------------------------------------------------------
+   5. Below 900px: the line moves left and the card gets the
+   full width, so two columns fit again
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .pt-timeline {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+
+    .pt-item:not(.pt-future) .pt-card {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-areas:
+            "meta window"
+            "name window"
+            "desc window"
+            "tech window"
+            "actions actions"
+            "caps caps";
+        column-gap: 22px;
+        padding: 44px 22px 20px;
+    }
+
+    .pt-item:not(.pt-future) .pt-tech    { align-self: start; }
+    .pt-item:not(.pt-future) .pt-window  { align-self: start; }
+    .pt-item:not(.pt-future) .pt-actions { flex-wrap: wrap; align-self: start; margin-top: 16px; }
+    .pt-item:not(.pt-future) .pt-caps    { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+
+/* ---------------------------------------------------------
+   6. Phones (640px and below): stack, buttons may wrap
+--------------------------------------------------------- */
+
+@media (max-width: 640px) {
+
+    .pt-item:not(.pt-future) .pt-card {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "meta"
+            "name"
+            "desc"
+            "window"
+            "tech"
+            "actions"
+            "caps";
+        padding: 42px 18px 20px;
+    }
+
+    .pt-item:not(.pt-future) .pt-window { margin-bottom: 16px; }
+    .pt-item:not(.pt-future) .pt-tech   { margin-bottom: 14px; }
+    .pt-item:not(.pt-future) .pt-caps   { grid-template-columns: 1fr; }
+}
+
+
+/* =========================================================
+   7. FINAL CTA CARD  ("More Projects & Open Source")
+   Same white card, border, shadow, radius and drip edge as the
+   project cards. The orange button is the Hero's .btn-primary.
+   The node and "03" keep working because the item still has
+   the .pt-future class.
+========================================================= */
+
+.pt-item.pt-cta .pt-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 44px 28px 30px;
+
+    background: var(--paper-white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+}
+
+.pt-item.pt-cta .pt-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 94, 36, 0.45);
+    box-shadow: var(--shadow-elevated);
+}
+
+.pt-item.pt-cta .pt-meta {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.pt-item.pt-cta .pt-name {
+    font-size: clamp(28px, 2.4vw, 38px);
+}
+
+.pt-item.pt-cta .pt-desc {
+    max-width: 440px;
+    margin: 10px 0 22px;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.pt-cta-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+}
+
+.pt-cta-btn svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: currentColor;
+}
+
+/* The shared ".btn span" arrow nudge should only move the arrow */
+.pt-cta-btn:hover svg {
+    transform: none;
+}
+
+@media (max-width: 560px) {
+
+    .pt-item.pt-cta .pt-card {
+        padding: 40px 18px 24px;
+    }
+
+    .pt-cta-btn {
+        width: 100%;
+    }
+}
+
+

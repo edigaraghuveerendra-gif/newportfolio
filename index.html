@@ -647,148 +647,234 @@
 
         <section id="projects" class="section projects-section">
 
-            <div class="section-heading">
-                <h2>Selected Projects</h2>
+            <header class="pt-header">
+
+                <div class="pt-intro">
+                    <span class="pt-eyebrow">
+                        <i class="pt-pip" aria-hidden="true"></i>
+                        MY PROJECTS
+                    </span>
+
+                    <h2 class="pt-title">My Project <span>Journey</span></h2>
+
+                    <p class="pt-lede">
+                        A collection of applications I've built to solve
+                        practical problems, explore technologies, and
+                        strengthen my software development skills.
+                    </p>
+                </div>
+
+                <ul class="pt-stats" aria-label="Project summary">
+                    <li><strong>2</strong><span>Projects</span></li>
+                    <li><strong>11</strong><span>Technologies</span></li>
+                </ul>
+
+            </header>
+
+
+            <div class="pt-timeline" id="ptTimeline">
+
+                <!-- The single vertical line (grows orange as you scroll) -->
+                <div class="pt-line" aria-hidden="true">
+                    <span class="pt-line-fill"></span>
+                </div>
+
+                <ol class="pt-list">
+
+                    <!-- ============ PROJECT 01 ============ -->
+                    <li class="pt-item pt-left">
+
+                        <span class="pt-node" aria-hidden="true">01</span>
+
+                        <div class="pt-side" aria-hidden="true">
+                            <div class="pt-side-inner"><span class="pt-bignum">01</span></div>
+                        </div>
+
+                        <article class="pt-card">
+
+                            <div class="pt-drip" aria-hidden="true"></div>
+
+                            <div class="pt-meta">
+                                <span class="pt-badge">PROJECT 01</span>
+                                <span class="pt-cat">Java Web Application</span>
+                            </div>
+
+                            <h3 class="pt-name">E-Commerce Fashion Store</h3>
+
+                            <p class="pt-desc">
+                                A web-based fashion shopping application built
+                                using Java technologies, supporting product
+                                browsing, user authentication, shopping cart
+                                functionality, and order management.
+                            </p>
+
+                            <figure class="pt-window">
+                                <div class="window-topbar">
+                                    <span class="dot dot-red"></span>
+                                    <span class="dot dot-yellow"></span>
+                                    <span class="dot dot-green"></span>
+                                    <span class="window-title">fashion-store</span>
+                                </div>
+                                <img
+                                    src="images/ecommerce.jpg"
+                                    alt="E-Commerce Fashion Store home page with a hero banner and featured products"
+                                    width="1200"
+                                    height="750"
+                                    loading="lazy"
+                                >
+                            </figure>
+
+                            <ul class="pt-tech" aria-label="Technologies used">
+                                <li>Java</li>
+                                <li>JSP</li>
+                                <li>Servlets</li>
+                                <li>JDBC</li>
+                                <li>MySQL</li>
+                                <li>Tomcat</li>
+                            </ul>
+
+                            <ul class="pt-caps" aria-label="Key capabilities">
+                                <li>Product Catalog</li>
+                                <li>Authentication</li>
+                                <li>Shopping Cart</li>
+                                <li>Order Management</li>
+                                <li>CRUD Operations</li>
+                                <li>MVC Architecture</li>
+                            </ul>
+
+                            <div class="pt-actions">
+                                <a href="#" class="pt-btn">View on GitHub <span aria-hidden="true">→</span></a>
+                                <a href="#" class="pt-btn">Live demo <span aria-hidden="true">→</span></a>
+                            </div>
+
+                        </article>
+
+                    </li>
+
+
+                    <!-- ============ PROJECT 02 ============ -->
+                    <li class="pt-item pt-right">
+
+                        <span class="pt-node" aria-hidden="true">02</span>
+
+                        <div class="pt-side" aria-hidden="true">
+                            <div class="pt-side-inner"><span class="pt-bignum">02</span></div>
+                        </div>
+
+                        <article class="pt-card">
+
+                            <div class="pt-drip" aria-hidden="true"></div>
+
+                            <div class="pt-meta">
+                                <span class="pt-badge">PROJECT 02</span>
+                                <span class="pt-cat">Full-Stack Application</span>
+                            </div>
+
+                            <h3 class="pt-name">MediCore</h3>
+
+                            <p class="pt-desc">
+                                A hospital appointment scheduling platform
+                                designed to connect patients, doctors, and
+                                administrators through a structured booking
+                                workflow.
+                            </p>
+
+                            <figure class="pt-window">
+                                <div class="window-topbar">
+                                    <span class="dot dot-red"></span>
+                                    <span class="dot dot-yellow"></span>
+                                    <span class="dot dot-green"></span>
+                                    <span class="window-title">medicore</span>
+                                </div>
+                                <img
+                                    src="images/medicore.jpg"
+                                    alt="MediCore appointment dashboard showing featured doctors and booking options"
+                                    width="1200"
+                                    height="750"
+                                    loading="lazy"
+                                >
+                            </figure>
+
+                            <ul class="pt-tech" aria-label="Technologies used">
+                                <li>React.js</li>
+                                <li>Node.js</li>
+                                <li>Express.js</li>
+                                <li>SQLite</li>
+                                <li>REST APIs</li>
+                            </ul>
+
+                            <ul class="pt-caps" aria-label="Key capabilities">
+                                <li>Patient &amp; Admin Modules</li>
+                                <li>Authentication</li>
+                                <li>Role-Based Access</li>
+                                <li>Doctor Management</li>
+                                <li>Appointment Booking</li>
+                                <li>Reviews</li>
+                                <li>Dashboard</li>
+                            </ul>
+
+                            <div class="pt-actions">
+                                <a href="#" class="pt-btn">View on GitHub <span aria-hidden="true">→</span></a>
+                                <a href="#" class="pt-btn">Live demo <span aria-hidden="true">→</span></a>
+                            </div>
+
+                        </article>
+
+                    </li>
+
+
+                    <!-- ============ FINAL CTA (replaces "Future Projects") ============ -->
+                    <li class="pt-item pt-left pt-future pt-cta">
+
+                        <span class="pt-node" aria-hidden="true">03</span>
+
+                        <div class="pt-side" aria-hidden="true">
+                            <div class="pt-side-inner"><span class="pt-bignum">03</span></div>
+                        </div>
+
+                        <article class="pt-card">
+
+                            <div class="pt-drip" aria-hidden="true"></div>
+
+                            <div class="pt-meta">
+                                <span class="pt-badge">MORE ON GITHUB</span>
+                            </div>
+
+                            <h3 class="pt-name">More Projects &amp; Open Source</h3>
+
+                            <p class="pt-desc">
+                                Explore additional projects, experiments, and
+                                contributions to open source on GitHub.
+                            </p>
+
+                            <a
+                                href="https://github.com/edigaraghuveerendra-gif"
+                                class="btn btn-primary pt-cta-btn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View All Projects <span aria-hidden="true">→</span>
+                            </a>
+
+                        </article>
+
+                    </li>
+
+
+                </ol>
+
             </div>
 
-            <p class="section-description">
-                A selection of applications built to practice
-                real-world development concepts.
+            <p class="pt-motto">
+                <i class="pt-pip" aria-hidden="true"></i>
+                Build <span aria-hidden="true">·</span> Learn <span aria-hidden="true">·</span> Improve <span aria-hidden="true">·</span> Build again
             </p>
 
-
-            <!-- PROJECT 1: E-COMMERCE -->
-
-            <article class="project-panel">
-
-                <div class="project-drip" aria-hidden="true"></div>
-
-                <div class="project-grid">
-
-                    <div class="project-text">
-
-                        <span class="project-label">Project 01 · Java Web Application</span>
-
-                        <h3>E-Commerce Fashion Store</h3>
-
-                        <p class="project-desc">
-                            A web-based fashion shopping application built
-                            around product browsing, customer accounts,
-                            shopping carts and order management.
-                        </p>
-
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>JSP</span>
-                            <span>Servlets</span>
-                            <span>JDBC</span>
-                            <span>MySQL</span>
-                            <span>Tomcat</span>
-                        </div>
-
-                        <ul class="project-features">
-                            <li>Product catalog and browsing</li>
-                            <li>User accounts and authentication</li>
-                            <li>Shopping cart functionality</li>
-                            <li>Order management and CRUD operations</li>
-                            <li>MVC-based application structure</li>
-                        </ul>
-
-                        <div class="project-links">
-                            <a href="#" class="project-btn">GitHub <span aria-hidden="true">→</span></a>
-                            <a href="#" class="project-link">Live Demo ↗</a>
-                        </div>
-
-                    </div>
-
-                    <div class="project-media">
-                        <div class="project-window">
-                            <div class="window-topbar">
-                                <span class="dot dot-red"></span>
-                                <span class="dot dot-yellow"></span>
-                                <span class="dot dot-green"></span>
-                                <span class="window-title">fashion-store</span>
-                            </div>
-                            <img
-                                src="images/ecommerce.jpg"
-                                alt="E-Commerce Fashion Store project"
-                                width="900"
-                                height="560"
-                            >
-                        </div>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROJECT 2: MEDICORE -->
-
-            <article class="project-panel project-reverse">
-
-                <div class="project-drip" aria-hidden="true"></div>
-
-                <div class="project-grid">
-
-                    <div class="project-text">
-
-                        <span class="project-label">Project 02 · Full-Stack Application</span>
-
-                        <h3>MediCore</h3>
-
-                        <p class="project-desc">
-                            A hospital appointment scheduling application
-                            that connects patients, doctors and
-                            administrators through a structured booking
-                            workflow.
-                        </p>
-
-                        <div class="project-tags">
-                            <span>React.js</span>
-                            <span>Node.js</span>
-                            <span>Express.js</span>
-                            <span>SQLite</span>
-                            <span>REST APIs</span>
-                        </div>
-
-                        <ul class="project-features">
-                            <li>Patient and admin modules</li>
-                            <li>Authentication and role-based access</li>
-                            <li>Doctor and appointment management</li>
-                            <li>Reviews and dashboard analytics</li>
-                            <li>Responsive appointment booking</li>
-                        </ul>
-
-                        <div class="project-links">
-                            <a href="#" class="project-btn">GitHub <span aria-hidden="true">→</span></a>
-                            <a href="#" class="project-link">Live Demo ↗</a>
-                        </div>
-
-                    </div>
-
-                    <div class="project-media">
-                        <div class="project-window">
-                            <div class="window-topbar">
-                                <span class="dot dot-red"></span>
-                                <span class="dot dot-yellow"></span>
-                                <span class="dot dot-green"></span>
-                                <span class="window-title">medicore</span>
-                            </div>
-                            <img
-                                src="images/medicore.jpg"
-                                alt="MediCore hospital appointment dashboard"
-                                width="900"
-                                height="560"
-                            >
-                        </div>
-                    </div>
-
-                </div>
-
-            </article>
-
         </section>
+
 
 
         <!-- =========================
