@@ -74,11 +74,13 @@
             '.certification-card',
             '.education-card',
             '.coding-card',
+            '.cp-head',
+            '.cp-card',
             '.focus-inner',
             '.contact-content'
         ].join(',');
 
-        const gridParents = '.stack-rows, .certifications-grid, .coding-grid';
+                const gridParents = '.stack-rows, .certifications-grid, .coding-grid, .cp-grid';
 
         const targets = document.querySelectorAll(selector);
 
@@ -603,4 +605,47 @@
 })();
 
 
+
+    /* CONTACT FORM: FormSubmit AJAX delivery (requires one-time inbox activation). */
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const status = document.getElementById('contact-form-status');
+        const submit = contactForm.querySelector('button[type="submit"]');
+        const submitLabel = submit.querySelector('.submit-label');
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            status.textContent = '';
+            status.className = 'contact-form-status';
+            if (!contactForm.reportValidity()) return;
+            const data = new FormData(contactForm);
+            if (String(data.get('_honey') || '').trim()) return;
+            data.delete('_honey');
+            data.append('_subject', 'Portfolio contact — Raghuveerendra Ediga');
+            data.append('_template', 'table');
+            submit.disabled = true;
+            submitLabel.textContent = 'Sending…';
+            contactForm.setAttribute('aria-busy', 'true');
+            try {
+                const response = await fetch('https://formspree.io/f/meaegdwn', {
+    method: 'POST',
+    headers: {
+          'Accept': 'application/json'
+    }, body: data
+});
+                const result = await response.json();
+                if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Message could not be sent.');
+                status.textContent = 'Thanks! Your message has been sent. I’ll get back to you soon.';
+                status.classList.add('is-success');
+                contactForm.reset();
+            } catch (error) {
+                status.textContent = 'Sorry, the message could not be sent. Please email edigaraghuveerendra@gmail.com directly.';
+                status.classList.add('is-error');
+            } finally {
+                submit.disabled = false;
+                submitLabel.textContent = 'Send Message';
+                contactForm.removeAttribute('aria-busy');
+            }
+        });
+    }
+    
 })();

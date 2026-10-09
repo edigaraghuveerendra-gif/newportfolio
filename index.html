@@ -65,13 +65,16 @@
                 </div>
 
                 <div class="nav-actions">
-                    <a
-                        href="resume.pdf"
-                        class="nav-ghost"
-                        download="Raghuveerendra-Ediga-Resume.pdf"
-                    >
-                        Resume
-                    </a>
+                
+                <a
+                   href="./Ediga_Raghuveerendra.pdf"
+                    class="nav-ghost"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Resume
+                </a>
+
 
                     <a href="#contact" class="nav-cta">
                         Contact <span aria-hidden="true">→</span>
@@ -144,7 +147,7 @@
                         </a>
 
                         <a
-                            href="resume.pdf"
+                            href="Ediga_Raghuveerendra.pdf"
                             class="btn btn-secondary"
                             download="Raghuveerendra-Ediga-Resume.pdf"
                         >
@@ -995,60 +998,220 @@
 
 
 
-        <!-- =========================
+
+      <!-- =========================
              CODING
         ========================== -->
 
-        <section id="coding" class="section coding-section">
+        <section id="coding" class="section coding-section cp-section">
 
-            <div class="section-heading">
-                <h2>Coding &amp; Problem Solving</h2>
-            </div>
+            <!-- Pictures and small icons used by the coding cards (drawn once) -->
+            <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+                <defs>
+                    <symbol id="cp-i-code" viewBox="0 0 24 24"><path d="M8 6 2 12l6 6M16 6l6 6-6 6M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+                    <symbol id="cp-i-bars" viewBox="0 0 24 24"><path fill="currentColor" d="M3 12h4v9H3zM10 7h4v14h-4zM17 3h4v18h-4z"/></symbol>
+                    <symbol id="cp-i-trophy" viewBox="0 0 24 24"><path fill="currentColor" d="M6 3h12v5a6 6 0 0 1-12 0zM3 5h3v2a2 2 0 0 0 2 2H7a4 4 0 0 1-4-4zM21 5h-3v2a2 2 0 0 1-2 2h1a4 4 0 0 0 4-4zM11 14h2v4h3v3H8v-3h3z"/></symbol>
+                    <symbol id="cp-i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1z"/></symbol>
+                    <symbol id="cp-i-cap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9zM5 13.2v4c0 1.7 3.1 3.3 7 3.3s7-1.6 7-3.3v-4l-7 3.8z"/></symbol>
+                    <symbol id="cp-i-people" viewBox="0 0 24 24"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></symbol>
+                    <symbol id="cp-i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/></g><circle cx="12" cy="12" r="1.6" fill="currentColor"/></symbol>
+                    <symbol id="cp-i-flame" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c1 4-3 5-3 9a3 3 0 0 0 6 0c0-1-.5-2-1-3 3 1 5 4 5 7a7 7 0 0 1-14 0c0-6 7-7 7-13z"/></symbol>
+                    <symbol id="cp-i-crown" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7l4.5 4L12 5l4.5 6L21 7l-2 11H5z"/></symbol>
 
-            <p class="section-description">
-                I regularly practice programming problems and maintain my
-                development work across coding platforms and GitHub.
-            </p>
+                    <!-- LeetCode: laptop + orange tile -->
+                    <symbol id="cp-art-lc" viewBox="0 0 170 130">
+                        <circle cx="96" cy="68" r="54" style="fill:var(--cp-tint)"/>
+                        <rect x="26" y="20" width="104" height="70" rx="8" style="fill:var(--cp-screen)"/>
+                        <circle cx="38" cy="31" r="3" fill="#ff5f57"/><circle cx="48" cy="31" r="3" fill="#febc2e"/><circle cx="58" cy="31" r="3" fill="#28c840"/>
+                        <rect x="36" y="44" width="36" height="4" rx="2" style="fill:var(--cp-brand)"/>
+                        <rect x="76" y="44" width="30" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                        <rect x="46" y="54" width="44" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                        <rect x="46" y="64" width="26" height="4" rx="2" style="fill:var(--cp-brand)"/>
+                        <rect x="76" y="64" width="28" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                        <rect x="36" y="74" width="48" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                        <path d="M10 94h136l-6 9a4 4 0 0 1-3 1.6H19a4 4 0 0 1-3-1.6z" fill="#d5dae2"/>
+                        <rect x="60" y="94" width="36" height="3" rx="1.5" fill="#b9c0cb"/>
+                        <g transform="rotate(10 128 84)">
+                            <rect x="106" y="62" width="44" height="44" rx="10" style="fill:var(--cp-brand)"/>
+                            <g transform="translate(112 68) scale(1.33)"><path fill="#fff" d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></g>
+                        </g>
+                        <path transform="translate(146 22) scale(1)" d="M3 0h3v3h3v3H6v3H3V6H0V3h3z" style="fill:var(--cp-brand)" opacity=".85"/>
+                        <path transform="translate(10 108) scale(0.8)" d="M3 0h3v3h3v3H6v3H3V6H0V3h3z" style="fill:var(--cp-brand)" opacity=".85"/>
+                    </symbol>
+                    <!-- HackerRank: code window + hexagon badge -->
+                    <symbol id="cp-art-hr" viewBox="0 0 170 130">
+                        <circle cx="96" cy="68" r="54" style="fill:var(--cp-tint)"/>
+                        <g transform="rotate(-6 76 62)">
+                            <rect x="24" y="18" width="104" height="76" rx="9" style="fill:var(--cp-screen)"/>
+                            <circle cx="36" cy="29" r="3" fill="#ff5f57"/><circle cx="46" cy="29" r="3" fill="#febc2e"/><circle cx="56" cy="29" r="3" fill="#28c840"/>
+                            <rect x="34" y="42" width="30" height="4" rx="2" style="fill:var(--cp-brand)"/>
+                            <rect x="68" y="42" width="34" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                            <rect x="44" y="52" width="46" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                            <rect x="44" y="62" width="24" height="4" rx="2" style="fill:var(--cp-brand)"/>
+                            <rect x="72" y="62" width="30" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                            <rect x="34" y="72" width="40" height="4" rx="2" fill="#e3f1fe" opacity=".75"/>
+                            <rect x="34" y="82" width="26" height="4" rx="2" style="fill:var(--cp-brand)"/>
+                        </g>
+                        <path d="M122 62l22 12.5v25L122 112l-22-12.5v-25z" stroke-linejoin="round" stroke-width="6" style="fill:var(--cp-brand);stroke:var(--cp-brand)"/>
+                        <rect x="112" y="76" width="5" height="26" rx="1" fill="#fff"/>
+                        <rect x="127" y="76" width="5" height="26" rx="1" fill="#fff"/>
+                        <rect x="112" y="86" width="20" height="5" rx="1" fill="#fff"/>
+                        <path transform="translate(148 20) scale(1)" d="M3 0h3v3h3v3H6v3H3V6H0V3h3z" style="fill:var(--cp-brand)" opacity=".85"/>
+                        <path transform="translate(14 102) scale(0.8)" d="M3 0h3v3h3v3H6v3H3V6H0V3h3z" style="fill:var(--cp-brand)" opacity=".85"/>
+                    </symbol>
+                    <!-- GeeksforGeeks: stacked pages + logo -->
+                    <symbol id="cp-art-gf" viewBox="0 0 170 130">
+                        <circle cx="96" cy="68" r="54" style="fill:var(--cp-tint)"/>
+                        <g transform="rotate(-9 78 66)">
+                            <rect x="40" y="22" width="76" height="92" rx="7" fill="#000" opacity=".07"/>
+                            <rect x="38" y="20" width="76" height="92" rx="7" fill="#f4f8f5"/>
+                        </g>
+                        <g transform="rotate(5 96 66)">
+                            <rect x="58" y="24" width="78" height="92" rx="7" fill="#000" opacity=".08"/>
+                            <rect x="56" y="22" width="78" height="92" rx="7" fill="#ffffff"/>
+                            <g transform="translate(76 34) scale(1.6)"><path style="fill:var(--cp-brand)" d="M21.45 14.315c-.143.28-.334.532-.565.745a3.691 3.691 0 0 1-1.104.695 4.51 4.51 0 0 1-3.116-.016 3.79 3.79 0 0 1-2.135-2.078 3.571 3.571 0 0 1-.13-.353h7.418a4.26 4.26 0 0 1-.368 1.008zm-11.99-.654a3.793 3.793 0 0 1-2.134 2.078 4.51 4.51 0 0 1-3.117.016 3.7 3.7 0 0 1-1.104-.695 2.652 2.652 0 0 1-.564-.745 4.221 4.221 0 0 1-.368-1.006H9.59c-.038.12-.08.238-.13.352zm14.501-1.758a3.849 3.849 0 0 0-.082-.475l-9.634-.008a3.932 3.932 0 0 1 1.143-2.348c.363-.35.79-.625 1.26-.809a3.97 3.97 0 0 1 4.484.957l1.521-1.49a5.7 5.7 0 0 0-1.922-1.357 6.283 6.283 0 0 0-2.544-.49 6.35 6.35 0 0 0-2.405.457 6.007 6.007 0 0 0-1.963 1.276 6.142 6.142 0 0 0-1.325 1.94 5.862 5.862 0 0 0-.466 1.864h-.063a5.857 5.857 0 0 0-.467-1.865 6.13 6.13 0 0 0-1.325-1.939A6 6 0 0 0 8.21 6.34a6.698 6.698 0 0 0-4.949.031A5.708 5.708 0 0 0 1.34 7.73l1.52 1.49a4.166 4.166 0 0 1 4.484-.958c.47.184.898.46 1.26.81.368.36.66.792.859 1.268.146.344.242.708.285 1.08l-9.635.008A4.714 4.714 0 0 0 0 12.457a6.493 6.493 0 0 0 .345 2.127 4.927 4.927 0 0 0 1.08 1.783c.528.56 1.17 1 1.88 1.293a6.454 6.454 0 0 0 2.504.457c.824.005 1.64-.15 2.404-.457a5.986 5.986 0 0 0 1.964-1.277 6.116 6.116 0 0 0 1.686-3.076h.273a6.13 6.13 0 0 0 1.686 3.077 5.99 5.99 0 0 0 1.964 1.276 6.345 6.345 0 0 0 2.405.457 6.45 6.45 0 0 0 2.502-.457 5.42 5.42 0 0 0 1.882-1.293 4.928 4.928 0 0 0 1.08-1.783A6.52 6.52 0 0 0 24 12.457a4.757 4.757 0 0 0-.039-.554z"/></g>
+                            <rect x="70" y="78" width="50" height="4" rx="2" style="fill:var(--cp-brand)" opacity=".35"/>
+                            <rect x="70" y="88" width="38" height="4" rx="2" style="fill:var(--cp-brand)" opacity=".25"/>
+                            <rect x="70" y="98" width="44" height="4" rx="2" style="fill:var(--cp-brand)" opacity=".25"/>
+                        </g>
+                        <path transform="translate(146 24) scale(1)" d="M3 0h3v3h3v3H6v3H3V6H0V3h3z" style="fill:var(--cp-brand)" opacity=".85"/>
+                        <path transform="translate(12 100) scale(0.8)" d="M3 0h3v3h3v3H6v3H3V6H0V3h3z" style="fill:var(--cp-brand)" opacity=".85"/>
+                    </symbol>
+                </defs>
+            </svg>
 
-            <div class="coding-grid">
+            <svg class="pixel-cloud cp-cloud-1" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
+            <svg class="pixel-cloud cp-cloud-2" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
+            <svg class="pixel-cloud cp-cloud-3" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
 
-                <a
-                    href="https://leetcode.com/u/Raghu401/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="coding-card"
-                >
-                    <span class="coding-arrow" aria-hidden="true">↗</span>
-                    <span class="coding-icon">LC</span>
-                    <span class="coding-name">LeetCode</span>
-                    <small>Problem Solving</small>
-                </a>
+            <header class="cp-head">
 
-                <a href="#" class="coding-card">
-                    <span class="coding-arrow" aria-hidden="true">↗</span>
-                    <span class="coding-icon">GFG</span>
-                    <span class="coding-name">GeeksforGeeks</span>
-                    <small>DSA Practice</small>
-                </a>
+                <p class="cp-eyebrow">
+                    PRACTICE <i aria-hidden="true"></i> COMPETE <i aria-hidden="true"></i> IMPROVE
+                </p>
 
-                <a href="#" class="coding-card">
-                    <span class="coding-arrow" aria-hidden="true">↗</span>
-                    <span class="coding-icon">HR</span>
-                    <span class="coding-name">HackerRank</span>
-                    <small>Programming</small>
-                </a>
+                <h2 class="cp-title">My <span>Coding Profiles</span></h2>
 
-                <a
-                    href="https://github.com/edigaraghuveerendra-gif"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="coding-card"
-                >
-                    <span class="coding-arrow" aria-hidden="true">↗</span>
-                    <span class="coding-icon">GH</span>
-                    <span class="coding-name">GitHub</span>
-                    <small>Projects &amp; Code</small>
-                </a>
+                <p class="cp-sub">
+                    Consistent practice across multiple platforms to improve
+                    problem-solving skills and strengthen my programming concepts.
+                </p>
+
+                <span class="cp-rule" aria-hidden="true"></span>
+
+            </header>
+
+            <div class="cp-grid">
+
+                <article class="cp-card cp-lc">
+
+                    <div class="cp-card-top">
+                        <span class="cp-logo" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg></span>
+                        <div class="cp-id">
+                            <h3>LeetCode</h3>
+                            <p>Coding Platform</p>
+                        </div>
+                        <span class="cp-chip"><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-bars"/></svg>Problem Solving</span>
+                    </div>
+
+                    <div class="cp-main">
+                        <div class="cp-stat">
+                            <strong>344+</strong>
+                            <span>Problems Solved</span>
+                        </div>
+                        <svg class="cp-art" viewBox="0 0 170 130" aria-hidden="true" focusable="false"><use href="#cp-art-lc"/></svg>
+                    </div>
+
+                    <ul class="cp-points">
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-code"/></svg><span>136 Easy, 179 Medium, 29 Hard</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-bars"/></svg><span>Contest rating: 1450 (Top 62.73%)</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-trophy"/></svg><span>340 submissions in the last year</span></li>
+                    </ul>
+
+                    <a
+                        href="https://leetcode.com/u/Raghu401/"
+                        class="btn cp-btn-outline cp-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Profile <span aria-hidden="true">→</span>
+                    </a>
+
+                </article>
+
+                <article class="cp-card cp-hr cp-feature">
+
+                    <div class="cp-card-top">
+                        <span class="cp-logo" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M0 0v24h24V0zm9.95 8.002h1.805c.061 0 .111.05.111.111v7.767c0 .061-.05.111-.11.111H9.95c-.061 0-.111-.05-.111-.11v-2.87H7.894v2.87c0 .06-.05.11-.11.11H5.976a.11.11 0 01-.11-.11V8.112c0-.06.05-.11.11-.11h1.806c.061 0 .11.05.11.11v2.869H9.84v-2.87c0-.06.05-.11.11-.11zm2.999 0h5.778c.061 0 .111.05.111.11v7.767a.11.11 0 01-.11.112h-5.78a.11.11 0 01-.11-.11V8.111c0-.06.05-.11.11-.11z"/></svg></span>
+                        <div class="cp-id">
+                            <h3>HackerRank</h3>
+                            <p>Coding Platform</p>
+                        </div>
+                        <span class="cp-chip"><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-crown"/></svg>Strong in Java</span>
+                    </div>
+
+                    <div class="cp-main">
+                        <div class="cp-stat">
+                            <strong>200+</strong>
+                            <span>Problems Solved</span>
+                        </div>
+                        <svg class="cp-art" viewBox="0 0 170 130" aria-hidden="true" focusable="false"><use href="#cp-art-hr"/></svg>
+                    </div>
+
+                    <ul class="cp-points">
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-trophy"/></svg><span>Gold badge (5-star) in Java</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-code"/></svg><span>2-star Python coder</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-star"/></svg><span>2 star in Problem Solving</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-bars"/></svg><span>Active participation in challenges</span></li>
+                    </ul>
+
+                    <a
+                        href="#"
+                        class="btn btn-primary cp-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Profile <span aria-hidden="true">→</span>
+                    </a>
+
+                </article>
+
+                <article class="cp-card cp-gf">
+
+                    <div class="cp-card-top">
+                        <span class="cp-logo" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M21.45 14.315c-.143.28-.334.532-.565.745a3.691 3.691 0 0 1-1.104.695 4.51 4.51 0 0 1-3.116-.016 3.79 3.79 0 0 1-2.135-2.078 3.571 3.571 0 0 1-.13-.353h7.418a4.26 4.26 0 0 1-.368 1.008zm-11.99-.654a3.793 3.793 0 0 1-2.134 2.078 4.51 4.51 0 0 1-3.117.016 3.7 3.7 0 0 1-1.104-.695 2.652 2.652 0 0 1-.564-.745 4.221 4.221 0 0 1-.368-1.006H9.59c-.038.12-.08.238-.13.352zm14.501-1.758a3.849 3.849 0 0 0-.082-.475l-9.634-.008a3.932 3.932 0 0 1 1.143-2.348c.363-.35.79-.625 1.26-.809a3.97 3.97 0 0 1 4.484.957l1.521-1.49a5.7 5.7 0 0 0-1.922-1.357 6.283 6.283 0 0 0-2.544-.49 6.35 6.35 0 0 0-2.405.457 6.007 6.007 0 0 0-1.963 1.276 6.142 6.142 0 0 0-1.325 1.94 5.862 5.862 0 0 0-.466 1.864h-.063a5.857 5.857 0 0 0-.467-1.865 6.13 6.13 0 0 0-1.325-1.939A6 6 0 0 0 8.21 6.34a6.698 6.698 0 0 0-4.949.031A5.708 5.708 0 0 0 1.34 7.73l1.52 1.49a4.166 4.166 0 0 1 4.484-.958c.47.184.898.46 1.26.81.368.36.66.792.859 1.268.146.344.242.708.285 1.08l-9.635.008A4.714 4.714 0 0 0 0 12.457a6.493 6.493 0 0 0 .345 2.127 4.927 4.927 0 0 0 1.08 1.783c.528.56 1.17 1 1.88 1.293a6.454 6.454 0 0 0 2.504.457c.824.005 1.64-.15 2.404-.457a5.986 5.986 0 0 0 1.964-1.277 6.116 6.116 0 0 0 1.686-3.076h.273a6.13 6.13 0 0 0 1.686 3.077 5.99 5.99 0 0 0 1.964 1.276 6.345 6.345 0 0 0 2.405.457 6.45 6.45 0 0 0 2.502-.457 5.42 5.42 0 0 0 1.882-1.293 4.928 4.928 0 0 0 1.08-1.783A6.52 6.52 0 0 0 24 12.457a4.757 4.757 0 0 0-.039-.554z"/></svg></span>
+                        <div class="cp-id">
+                            <h3>GeeksforGeeks</h3>
+                            <p>Coding Platform</p>
+                        </div>
+                        <span class="cp-chip"><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-flame"/></svg>Consistent Practice</span>
+                    </div>
+
+                    <div class="cp-main">
+                        <div class="cp-stat">
+                            <strong>250+</strong>
+                            <span>Problems Solved</span>
+                        </div>
+                        <svg class="cp-art" viewBox="0 0 170 130" aria-hidden="true" focusable="false"><use href="#cp-art-gf"/></svg>
+                    </div>
+
+                    <ul class="cp-points">
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-bars"/></svg><span>116 Easy, 159 Medium, 10 Hard</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-cap"/></svg><span>Institute Rank: 2 at RGMCET</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-people"/></svg><span>Top 10% in weekly contests</span></li>
+                        <li><svg class="cp-ic" aria-hidden="true" focusable="false"><use href="#cp-i-target"/></svg><span>Active participation in coding events</span></li>
+                    </ul>
+
+                    <a
+                        href="#"
+                        class="btn cp-btn-outline cp-btn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Profile <span aria-hidden="true">→</span>
+                    </a>
+
+                </article>
 
             </div>
 
@@ -1092,47 +1255,48 @@
              CONTACT
         ========================== -->
 
-        <section id="contact" class="section contact-section">
-
-            <svg class="pixel-cloud contact-cloud-1" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
-            <svg class="pixel-cloud contact-cloud-2" viewBox="0 0 20 7" aria-hidden="true"><use href="#cloud-shape"/></svg>
-
-            <div class="contact-content">
-
-                <span class="contact-label">GET IN TOUCH</span>
-
-                <h2>
-                    <span class="contact-line">Let's build something</span>
-                    <span class="contact-accent">useful.</span>
-                </h2>
-
-                <p>
-                    I'm open to entry-level software engineering and
-                    Java developer opportunities.
-                </p>
-
-                <a
-                    href="mailto:edigaraghuveerendra@gmail.com"
-                    class="btn btn-primary"
-                >
-                    Contact Me <span aria-hidden="true">→</span>
-                </a>
-
-                <div class="contact-links">
-                    <a href="mailto:edigaraghuveerendra@gmail.com">Email</a>
-                    <a href="tel:+916305595501">Phone</a>
-                    <a
-                        href="https://www.linkedin.com/in/ediga-raghuveerendra/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >LinkedIn ↗</a>
-                    <a
-                        href="https://github.com/edigaraghuveerendra-gif"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >GitHub ↗</a>
+        <section id="contact" class="section contact-section contact-redesign">
+            <div class="contact-layout">
+                <div class="contact-copy">
+                    <span class="contact-label"><i aria-hidden="true"></i> GET IN TOUCH</span>
+                    <h2>Let's build<br>something<br><span class="contact-accent">useful.</span></h2>
+                    <p>I'm open to entry-level software engineering and Java developer opportunities. Let's connect and create something amazing together.</p>
+                    <div class="contact-actions">
+                        <a href="mailto:edigaraghuveerendra@gmail.com" class="btn btn-primary">Contact Me <span aria-hidden="true">→</span></a>
+                        <a href="Ediga_Raghuveerendra.pdf" class="contact-resume" target="_blank" rel="noopener noreferrer">View Resume</a>
+                    </div>
                 </div>
-
+                <div class="contact-portrait" aria-label="Portrait of Raghuveerendra Ediga">
+                    <div class="portrait-orbit" aria-hidden="true"></div>
+                    <span class="portrait-plus plus-one" aria-hidden="true">+</span><span class="portrait-plus plus-two" aria-hidden="true">+</span>
+                    <img src="images/contact-portrait.png" alt="Raghuveerendra Ediga" width="820" height="1792">
+                    <span class="contact-float float-opportunity"><span aria-hidden="true">☕</span> Open to Opportunities</span>
+                    <span class="contact-float float-problem"><span aria-hidden="true">🚀</span> Problem Solver</span>
+                    <span class="contact-float float-java"><span aria-hidden="true">⌘</span> Java Developer</span>
+                    <span class="contact-float float-learning"><span aria-hidden="true">💡</span> Always Learning</span>
+            <nav class="contact-social-bar" aria-label="Contact and social links">
+                <a href="mailto:edigaraghuveerendra@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+                <a href="tel:+916305595501" aria-label="Phone" title="Phone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h3l2 5-2 2a15 15 0 0 0 4 4l2-2 5 2v3c0 1.1-.9 2-2 2C10 19 5 14 5 5c0-1.1.9-2 2-2Z"/></svg></a>
+                <a href="https://www.linkedin.com/in/ediga-raghuveerendra/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v10M5 5v.1M10 19v-6a4 4 0 0 1 8 0v6M10 10v9"/></svg></a>
+                <a href="https://github.com/edigaraghuveerendra-gif" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.7c3-.3 6.1-1.5 6.1-6.7A5.2 5.2 0 0 0 20 5.1 4.8 4.8 0 0 0 19.9 1S18.7.7 16 2.5a13.5 13.5 0 0 0-7 0C6.3.7 5.1 1 5.1 1A4.8 4.8 0 0 0 5 5.1a5.2 5.2 0 0 0-1.2 3.6c0 5.2 3.1 6.4 6.1 6.7A3.4 3.4 0 0 0 9 18.1V22"/></svg></a>
+            </nav>
+                </div>
+                <div class="contact-form-card">
+                    <span class="form-kicker">LET'S TALK</span>
+                    <h3>Send a Message</h3>
+                    <p>Have a question or opportunity? I'd love to hear from you!</p>
+                    <form action="http://127.0.0.1:5500/" method="POST" id="contact-form">
+                        <label for="contact-name">Your name</label>
+                        <div class="contact-input-wrap"><span aria-hidden="true">♙</span><input id="contact-name" name="name" autocomplete="name" placeholder="John Doe" required minlength="2"></div>
+                        <label for="contact-email">Email address</label>
+                        <div class="contact-input-wrap"><span aria-hidden="true">✉</span><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="john@example.com" required></div>
+                        <label for="contact-message">Your message</label>
+                        <div class="contact-input-wrap message-wrap"><span aria-hidden="true">✎</span><textarea id="contact-message" name="message" rows="4" placeholder="Tell me about your opportunity or idea..." required minlength="2"></textarea></div>
+                        <input type="text" name="_honey" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <button class="contact-submit" type="submit"><span class="submit-label">Send Message</span><span aria-hidden="true">↗</span></button>
+                        <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
             </div>
 
         </section>
@@ -1145,26 +1309,7 @@
          FOOTER
     ========================== -->
 
-    <footer class="site-footer">
 
-        <div class="footer-content">
-
-            <div class="footer-brand">
-                <strong>Raghuveerendra Ediga</strong>
-                <span>Software Engineer | Java Developer</span>
-            </div>
-
-            <div class="footer-links">
-                <a href="https://github.com/edigaraghuveerendra-gif" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/ediga-raghuveerendra/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="mailto:edigaraghuveerendra@gmail.com">Email</a>
-            </div>
-
-            <p class="copyright">© 2026 Raghuveerendra Ediga</p>
-
-        </div>
-
-    </footer>
 
     <script src="script.js" defer></script>
 
